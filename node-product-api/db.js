@@ -38,7 +38,7 @@ async function getProductById(id) {
     const [rows] = await connection.query(query, [id]);
     return rows;
   } catch (err) {
-    console.log("Erro SQL: " + err);
+    console.log("Erro SQL: " + JSON.stringify(err));
     throw "Erro Inesperado";
   }
 }
@@ -47,7 +47,7 @@ async function updateProductById(id, name, description, value) {
   try {
     const connection = await connect();
 
-    const query = `UPDATE products SET name = ?, description = ?", value = ? WHERE id = ?;`;
+    const query = `UPDATE products SET name = ?, description = ?, value = ? WHERE id = ?;`;
     console.log(
       `Executando query: ${query}, com valores id ${id}, name ${name}, description ${description}, value ${value}`
     );
@@ -60,7 +60,7 @@ async function updateProductById(id, name, description, value) {
     ]);
     return rows;
   } catch (err) {
-    console.log("Erro SQL: " + err);
+    console.log("Erro SQL: " + JSON.stringify(err));
     throw { code: 500, message: "Erro inesperado ao tentar cadastrar usuário" };
   }
 }
@@ -74,7 +74,7 @@ async function deleteProductById(id) {
 
     await connection.query(query, [id]);
   } catch (err) {
-    console.log("Erro SQL: " + err);
+    console.log("Erro SQL: " + JSON.stringify(err));
     throw "Erro Inesperado";
   }
 }
@@ -89,7 +89,7 @@ async function insertProduct(name, description, value) {
 
     await connection.execute(query, [id, name, description, value]);
   } catch (err) {
-    console.log("Erro SQL: " + err);
+    console.log("Erro SQL: " + JSON.stringify(err));
     if (err.errno === 1062) {
       throw {
         code: 400,
