@@ -84,6 +84,12 @@ app.delete("/products/:id", async (req, res, next) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
-});
+var https = require('https');
+var privateKey  = fs.readFileSync('./sslcert/selfsigned.key', 'utf8');
+var certificate = fs.readFileSync('./sslcert/selfsigned.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
+
+var httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(3001);
