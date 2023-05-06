@@ -1,4 +1,4 @@
-var http = require("http");
+const fs   = require('fs');
 
 const express = require("express");
 const app = express();
@@ -92,4 +92,4 @@ var credentials = {key: privateKey, cert: certificate};
 
 var httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(3001);
+httpsServer.listen(port);
