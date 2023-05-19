@@ -7,7 +7,7 @@ resources:
     parentId: wrk_d715d89196a04ac4b79a4a17113ffc11
     modified: 1682038332247
     created: 1682038016493
-    url: https://suaURL.us.auth0.com/oauth/token
+    url: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
     name: Generate token
     description: ""
     method: POST
@@ -15,16 +15,21 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"client_id": "seuClientId",
-        	"client_secret": "seuSecret",
-        	"audience": "http://localhost:4200",
-        	"grant_type": "client_credentials"
+	        "client_id":"E2mBB89lgO7X3UjMasi3QmPrcZ55C15C",
+	        "client_secret":"HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH",
+	        "audience":"https://localhost:3001",
+	        "grant_type":"client_credentials"
         }
     parameters: []
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
     metaSortKey: -1682038001900
     isPrivate: false
     settingStoreCookies: true
@@ -53,7 +58,13 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
+      audience: https://localhost:3001
     metaSortKey: -1682038001896.875
     isPrivate: false
     settingStoreCookies: true
@@ -74,7 +85,13 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
+      audience: https://localhost:3001
     metaSortKey: -1682038001893.75
     isPrivate: false
     settingStoreCookies: true
@@ -104,7 +121,13 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
+      audience: https://localhost:3001
     metaSortKey: -1682038001887.5
     isPrivate: false
     settingStoreCookies: true
@@ -134,7 +157,13 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
+      audience: https://localhost:3001
     metaSortKey: -1682038001875
     isPrivate: false
     settingStoreCookies: true
@@ -155,7 +184,13 @@ resources:
     body: {}
     parameters: []
     headers: []
-    authentication: {}
+    authentication: 
+      type: oauth2
+      grantType: client_credentials
+      accessTokenUrl: https://dev-5fuke6i8f4fvbrkb.us.auth0.com/oauth/token
+      clientId: E2mBB89lgO7X3UjMasi3QmPrcZ55C15C
+      clientSecret: HxUQbjts_1WPH_lUeUCeZts4vvj5oPVIKNKoYj2qs4eq_AHT4yfE-twPZzBCfagH
+      audience: https://localhost:3001
     metaSortKey: -1682038001850
     isPrivate: false
     settingStoreCookies: true

@@ -1,8 +1,22 @@
-const fs   = require('fs');
-
+const fs = require('fs');
 const express = require("express");
+const { auth } = require('express-oauth2-jwt-bearer'); 
+
 const app = express();
 const port = 3001;
+
+const checkToken = auth({
+  audience: 'http://localhost:3001',
+  issuerBaseURL: 'https://dev-5fuke6i8f4fvbrkb.us.auth0.com'
+});
+
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 const db = require("./db");
 const validation = require("./utils");
@@ -14,12 +28,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.get("/products", async (req, res, next) => {
+app.get("/products", checkToken, async (req, res, next) => {
   var resp = await db.getAllProducts();
   res.status(200).json(resp);
 });
 
-app.post("/products", async (req, res, next) => {
+app.post("/products", checkToken, async (req, res, next) => {
   try {
     var name = req.body.name;
     var description = req.body.description;
@@ -34,7 +48,7 @@ app.post("/products", async (req, res, next) => {
   }
 });
 
-app.get("/products/:id", async (req, res, next) => {
+app.get("/products/:id", checkToken, async (req, res, next) => {
   try {
     var id = req.params.id;
     validation.validateId(id);
@@ -48,7 +62,7 @@ app.get("/products/:id", async (req, res, next) => {
   }
 });
 
-app.put("/products/:id", async (req, res, next) => {
+app.put("/products/:id", checkToken, async (req, res, next) => {
   try {
     var id = req.params.id;
 
@@ -71,7 +85,7 @@ app.put("/products/:id", async (req, res, next) => {
   }
 });
 
-app.delete("/products/:id", async (req, res, next) => {
+app.delete("/products/:id", checkToken, async (req, res, next) => {
   try {
     var id = req.params.id;
     validation.validateId(id);
