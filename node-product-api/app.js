@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require("express");
 const { auth } = require('express-oauth2-jwt-bearer'); 
+const RateLimit = require('express-rate-limit');
 
 const app = express();
 const port = 3001;
@@ -24,6 +25,14 @@ const validation = require("./utils");
 var cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
+var limiter = new RateLimit({
+  windowMs: 15*60*1000,
+  max: 50,
+  delayMs: 0,
+  message: "Too many accounts created from this IP, please try again after an hour"
+});
+
+app.use(limiter);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
